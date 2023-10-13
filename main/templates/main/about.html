@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -124,8 +125,22 @@
                 </div>
             </div>
         </div>
-        
     </section>
+
+    <div class="container py-5">
+        <div class="row py-5">
+            <form action="" method="post" class="mb-3" role="form">
+                <h1 class="h1">Обратная связь</h1>
+                {% csrf_token %}
+                {{ form|crispy }}
+                {# {% for f in form %} #}
+                {# <p><label class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }} </p> #}
+                {# <div class="form-error">{{ f.errors }}</div> #}
+                {# {% endfor %} #}
+                <button class="btn btn-success btn-lg px-3" type="submit" id="submit" onclick="clicks();">Отправить</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
@@ -218,6 +233,7 @@
     <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'assets/js/templatemo.js' %}"></script>
     <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'js/alert.js'%}"></script>
     <!-- End Script -->
 </body>
 
